@@ -44,23 +44,18 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void makeCompleted(String title)
-  {
-
-    todoList.forEach((e){
-      if(e.todoTitle == title)
-      {
-      setState(() {
+  void makeCompleted(String title) {
+    todoList.forEach((e) {
+      if (e.todoTitle == title) {
+        setState(() {
           e.isCompleted = !e.isCompleted!;
-      });
+        });
       }
     });
 
-
-
     print(title);
+  }
 
-  } 
   @override
   Widget build(BuildContext context) {
     TextEditingController title = TextEditingController();
@@ -85,11 +80,12 @@ class _HomePageState extends State<HomePage> {
                       height: 58,
                       width: 50,
                       decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(7),
-                            bottomLeft: Radius.circular(7),
-                          )),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(7),
+                          bottomLeft: Radius.circular(7),
+                        ),
+                      ),
                       child: Center(
                         child: Icon(
                           Icons.add,
@@ -163,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                                       child: Center(
                                         child: InkWell(
                                           onTap: () {
-                                                makeCompleted(e.todoTitle!);
+                                            makeCompleted(e.todoTitle!);
                                           },
                                           child: Container(
                                             width: 30,
@@ -202,10 +198,15 @@ class _HomePageState extends State<HomePage> {
                                                 child: Text(
                                                   e.todoTitle!,
                                                   maxLines: 1,
-                                                  style:  TextStyle(
-                                                    decoration:e.isCompleted! ? TextDecoration.lineThrough : TextDecoration.none ,
+                                                  style: TextStyle(
+                                                    decoration: e.isCompleted!
+                                                        ? TextDecoration
+                                                            .lineThrough
+                                                        : TextDecoration.none,
                                                     fontSize: 18,
-                                                    color:  e.isCompleted! ? Colors.grey : Colors.black,
+                                                    color: e.isCompleted!
+                                                        ? Colors.grey
+                                                        : Colors.black,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                                 ),
@@ -232,7 +233,8 @@ class _HomePageState extends State<HomePage> {
                             )
                             .toList()),
                   ),
-                )
+                ),
+                Text("Made by Flutter hero",style: TextStyle(color: Colors.grey),)
               ],
             )),
       ),
